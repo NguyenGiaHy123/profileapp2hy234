@@ -26,9 +26,9 @@ function Project() {
       <div className='grid grid-cols-12 gap-5 relative'>
         {data.map((value,key)=>{
           return(
-            <div key={key}>
+          
             <CardProject name={value.name} description={value.description} image={value.image} pathgithub={value.pathgithub} category={value.category} key_techt={value.key_techt}/>
-            </div>
+            
           
           )
         })}

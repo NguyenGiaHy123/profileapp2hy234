@@ -8,7 +8,7 @@ import {Profile} from './Component/Profile/Profile';
 
 function App() {
   const [theme, setTheme] = useState('');
-  const localStorageColor=JSON.parse(localStorage.getItem('theme')||'');
+  const localStorageColor=eval(localStorage.getItem('theme')||'');
 
   useEffect(() => {
     if(window.matchMedia('(prefers-color-scheme: dark)').matches){
@@ -20,7 +20,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (localStorageColor &&localStorageColor=== "dark") {
+    if ((localStorageColor)==="dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -28,8 +28,10 @@ function App() {
   }, [theme]);
 
   const handleThemeSwitch = () => {
+    
     setTheme(theme === "dark" ? "light" : "dark");
     if(theme==='dark'){
+   
       localStorage.setItem('theme',JSON.stringify('light'))
     }
     else{
